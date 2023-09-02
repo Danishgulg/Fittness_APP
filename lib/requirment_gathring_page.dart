@@ -1,6 +1,7 @@
 import 'dart:ui';
 
-import 'package:fit_now/home_page.dart';
+import 'package:fit_now/home/home_page/home_page.dart';
+import 'package:fit_now/main_screen/main_screen_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -165,7 +166,7 @@ class MainButton extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const HomePage(),
+                  builder: (context) => const MainScreenPage(),
                 ));
           },
           child: const Text("NEXT")),

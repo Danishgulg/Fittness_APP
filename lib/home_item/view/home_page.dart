@@ -1,7 +1,7 @@
-import 'package:fit_now/home/home_widget/calender_category_widget.dart';
-import 'package:fit_now/home/home_widget/category_widget.dart';
-import 'package:fit_now/home/home_widget/description_text_widget.dart';
-import 'package:fit_now/home/home_widget/sub_category_widget.dart';
+import 'package:fit_now/home_item/widget/calender_category_widget.dart';
+import 'package:fit_now/home_item/widget/category_widget.dart';
+import 'package:fit_now/home_item/widget/description_text_widget.dart';
+import 'package:fit_now/home_item/widget/sub_category_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

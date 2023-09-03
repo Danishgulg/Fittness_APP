@@ -1,4 +1,6 @@
-import 'package:fit_now/measurement_charts/charts_widget/bar_chart/bar_chart_widget.dart';
+import 'package:fit_now/record_item/widget/dialyReportContainer.dart';
+import 'package:fit_now/record_item/widget/weeklyReportContainer.dart';
+import 'package:fit_now/requirments/widget/main_title.dart';
 import 'package:flutter/material.dart';
 
 class RecordPage extends StatefulWidget {
@@ -9,16 +11,6 @@ class RecordPage extends StatefulWidget {
 }
 
 class _RecordPageState extends State<RecordPage> {
-  final List<double> weeklySummaryList = [
-    23.4,
-    54.32,
-    14.32,
-    51.32,
-    23.32,
-    64.32,
-    99.32,
-  ];
-
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -26,19 +18,34 @@ class _RecordPageState extends State<RecordPage> {
     final screenWidth = screenSize.width;
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 4, 30, 60),
+      backgroundColor: const Color.fromARGB(255, 4, 30, 60),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-                height: screenHeight * 0.4,
-                width: screenWidth,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Color.fromARGB(255, 78, 117, 176)),
-                child: BarChartWidget(
-                  weeklySummaryList: weeklySummaryList,
-                ))
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: screenHeight * 0.1,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: screenWidth * 0.05),
+                child: const  Align(
+                    alignment: Alignment.topLeft,
+                    child:  MainTitle(text: 'Dialy Step Report:')),
+              ),
+              const DialyReportContainer(),
+              SizedBox(
+                height: screenHeight * 0.1,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: screenWidth * 0.05),
+                child: const Align(
+                    alignment: Alignment.topLeft,
+                    child: MainTitle(text: 'Weekly Report:')),
+              ),
+              const WeeklyReportContainer(),
+            ],
+          ),
         ),
       ),
     );

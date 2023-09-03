@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-import 'package:fit_now/measurement_charts/charts_widget/bar_chart/individual_bar.dart';
+import 'package:fit_now/record_item/model/individual_bar.dart';
 
 class WeeklyStepData {
   final double SunStep;
@@ -27,7 +27,7 @@ class WeeklyStepData {
     individualBarList = [
       IndividualBar(x: 0, y: 10),
       IndividualBar(x: 1, y: 20),
-      IndividualBar(x: 2, y: 22),
+      IndividualBar(x: 2, y: 40.0),
       IndividualBar(x: 3, y: 15),
       IndividualBar(x: 4, y: 12),
       IndividualBar(x: 5, y: 50),

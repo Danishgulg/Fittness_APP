@@ -1,6 +1,6 @@
-import 'package:fit_now/home/calender/calender_data.dart';
-import 'package:fit_now/home/home_widget/description_text_widget.dart';
-import 'package:fit_now/home/home_widget/main_title_widget.dart';
+import 'package:fit_now/home_item/model/calender/model/calender_data.dart';
+import 'package:fit_now/home_item/widget/description_text_widget.dart';
+import 'package:fit_now/home_item/widget/main_title_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,5 @@
-import 'package:fit_now/home/home_page/home_page.dart';
+import 'package:fit_now/home_item/view/home_page.dart';
+import 'package:fit_now/record_item/view/record_page.dart';
 import 'package:flutter/material.dart';
 
 class MainScreenPage extends StatefulWidget {
@@ -64,9 +65,8 @@ class _MainScreenPageState extends State<MainScreenPage> {
           index: _currentIndex,
           children: const[
             HomePage(),
-            Scaffold(
-              backgroundColor: Colors.amber,
-            ),
+          //  Scaffold(backgroundColor: Colors.amber,),
+          RecordPage(),
             Scaffold(
               backgroundColor: Colors.cyan,
             ),

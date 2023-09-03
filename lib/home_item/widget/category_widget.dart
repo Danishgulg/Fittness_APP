@@ -1,4 +1,4 @@
-import 'package:fit_now/home/home_widget/main_title_widget.dart';
+import 'package:fit_now/home_item/widget/main_title_widget.dart';
 import 'package:flutter/material.dart';
 
 class CategoryContainerWidget extends StatelessWidget {

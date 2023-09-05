@@ -2,6 +2,7 @@ import 'package:fit_now/home_item/widget/calender_category_widget.dart';
 import 'package:fit_now/home_item/widget/category_widget.dart';
 import 'package:fit_now/home_item/widget/description_text_widget.dart';
 import 'package:fit_now/home_item/widget/sub_category_widget.dart';
+import 'package:fit_now/home_running_module/view/running_page_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,21 +34,33 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: screenHeight * 0.05),
                 Padding(
                     padding: EdgeInsets.only(left: screenWidth * 0.06),
-                    child: const DescriptionText(text: 'Exercise Categories :')),
+                    child:
+                        const DescriptionText(text: 'Exercise Categories :')),
                 SizedBox(height: screenHeight * 0.02),
-                const Center(
+
+                //running container
+
+                 Center(
                     child: CategoryContainerWidget(
-                  image: AssetImage('assets/images/running.jpg'),
+                  image: const AssetImage('assets/images/running.jpg'),
+                  onTapEvent: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const RunningPage(),));
+                  },
                   description:
                       'This will measure your step count along with caliries',
                   mainText: "Running",
                 )),
-                const Center(
+
+                //cycling Container
+
+                 Center(
                     child: CategoryContainerWidget(
                   image: AssetImage('assets/images/cycling.jpg'),
                   description: 'you can select the rute by using map',
                   mainText: "Cycling",
+                  onTapEvent: () {},
                 )),
+
                 Padding(
                     padding: EdgeInsets.only(left: screenWidth * 0.06),
                     child: const DescriptionText(

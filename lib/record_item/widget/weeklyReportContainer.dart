@@ -64,7 +64,7 @@ class WeeklyReportContainer extends StatelessWidget {
           Container(
             height: screenHeight * 0.35,
             width: screenWidth * 0.9,
-            child: BarChartWidget(
+            child: WeeklyBarChartWidget(
               weeklySummaryList: weeklySummaryList,
             ),
           ),

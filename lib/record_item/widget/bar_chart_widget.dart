@@ -1,10 +1,11 @@
 import 'package:fit_now/record_item/model/bar_chart_measurements/steps/steps_data.dart';
+import 'package:fit_now/record_item/model/bar_chart_yearly_record/yearly_record.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class BarChartWidget extends StatelessWidget {
+class WeeklyBarChartWidget extends StatelessWidget {
   final List weeklySummaryList;
-  const BarChartWidget({super.key, required this.weeklySummaryList});
+  const WeeklyBarChartWidget({super.key, required this.weeklySummaryList});
 
   @override
   Widget build(BuildContext context) {
@@ -26,66 +27,140 @@ class BarChartWidget extends StatelessWidget {
     stepData.getBarListData();
 
     return Padding(
-      padding:
-          EdgeInsets.only(top: screenHeight * 0.1, left: screenWidth * 0.05),
-      child: BarChart(
-          //bar chart data
-          BarChartData(
-              backgroundColor: Colors.white12,
+        padding:
+            EdgeInsets.only(top: screenHeight * 0.1, left: screenWidth * 0.05),
+        child: BarChart(
+            //bar chart data
+            BarChartData(
+          backgroundColor: Colors.white12,
 
-              // here the max value depand upon the number of step counts
-              // stepcount.ceil().toDouble()
+          // here the max value depand upon the number of step counts
+          // stepcount.ceil().toDouble()
 
-              maxY: 100,
-              borderData: FlBorderData(
-                show: true,
-                border: Border.all(color: Colors.white24),
-              ),
-              groupsSpace: 23,
+          maxY: 100,
+          borderData: FlBorderData(
+            show: true,
+            border: Border.all(color: Colors.white24),
+          ),
+          groupsSpace: 23,
 
-              //specifies the data in the grid
+          //specifies the data in the grid
 
-              gridData: FlGridData(
-                  drawHorizontalLine: true,
-                  horizontalInterval: 34,
-                  drawVerticalLine: false,
-                  getDrawingHorizontalLine: (value) {
+          gridData: FlGridData(
+              drawHorizontalLine: true,
+              horizontalInterval: 34,
+              drawVerticalLine: false,
+              getDrawingHorizontalLine: (value) {
+                // here match the steptarget achieved
 
-                    // here match the steptarget achieved 
+                if (value == 34.0) {
+                  return const FlLine(
+                    color: Colors.red,
+                    dashArray: [5, 10],
+                    strokeWidth: 1,
+                  );
+                } else {
+                  print(value);
+                  return const FlLine(
+                    color: Colors.grey, // Default horizontal line color
+                    strokeWidth: 0.5,
+                  );
+                }
+              }),
+          barGroups: stepData.individualBarList
+              .map((data) => BarChartGroupData(x: data.x, barRods: [
+                    BarChartRodData(
+                        toY: data.y,
+                        color: const Color.fromARGB(255, 4, 35, 61),
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(5),
+                            topRight: Radius.circular(5)),
+                        width: screenWidth * 0.05)
+                  ]))
+              .toList(),
+        )));
+  }
+}
 
-                    if (value == 34.0) {
-                      
-                      return const FlLine(
-                        color: Colors.red,
-                        dashArray: [5, 10],
-                        strokeWidth: 1,
-                      );
+class MonthlyBarChartWidget extends StatelessWidget {
+  final List monthlyReportList;
+  const MonthlyBarChartWidget({super.key, required this.monthlyReportList});
 
-                    } else {
-                      print(value);
-                      return const FlLine(
-                        color: Colors.grey, // Default horizontal line color
-                        strokeWidth: 0.5,
-                      );
-                    }
-                  }),
-              barGroups: stepData.individualBarList
-                  .map((data) => BarChartGroupData(x: data.x, barRods: [
-                        BarChartRodData(
-                            toY: data.y,
-                            color: const Color.fromARGB(255, 4, 35, 61),
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(5),
-                                topRight: Radius.circular(5)),
-                            width: screenWidth * 0.05)
-                      ])
-                      
-                      )
-                  .toList(),
-                
-                
-                  
-                  
-      )));
+  @override
+  Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final screenHeight = screenSize.height;
+    final screenWidth = screenSize.width;
+
+    //this will be the number of steps that a person runs in a day
+
+    YearlyRecord stepData = YearlyRecord(
+        january: monthlyReportList[0],
+        february: monthlyReportList[1],
+        march: monthlyReportList[2],
+        april: monthlyReportList[3],
+        may: monthlyReportList[4],
+        june: monthlyReportList[5],
+        july: monthlyReportList[6],
+        august: monthlyReportList[7],
+        septumber: monthlyReportList[8],
+        october: monthlyReportList[9],
+        november: monthlyReportList[10],
+        december: monthlyReportList[11]);
+    stepData.getBarListData();
+
+    return Padding(
+        padding:
+            EdgeInsets.only(top: screenHeight * 0.1, left: screenWidth * 0.05),
+        child: BarChart(
+            //bar chart data
+            BarChartData(
+          backgroundColor: Colors.white12,
+
+          // here the max value depand upon the number of step counts
+          // stepcount.ceil().toDouble()
+
+          maxY: 100,
+          borderData: FlBorderData(
+            show: true,
+            border: Border.all(color: Colors.white24),
+          ),
+          groupsSpace: 23,
+
+          //specifies the data in the grid
+
+          gridData: FlGridData(
+              drawHorizontalLine: true,
+              horizontalInterval: 34,
+              drawVerticalLine: false,
+              getDrawingHorizontalLine: (value) {
+                // here match the steptarget achieved
+
+                if (value == 34.0) {
+                  return const FlLine(
+                    color: Colors.red,
+                    dashArray: [5, 10],
+                    strokeWidth: 1,
+                  );
+                } else {
+                  print(value);
+                  return const FlLine(
+                    color: Colors.grey, // Default horizontal line color
+                    strokeWidth: 0.5,
+                  );
+                }
+              }),
+          barGroups: stepData.individualBarList
+              .map((data) => BarChartGroupData(x: data.x, barRods: [
+                    BarChartRodData(
+                        toY: data.y,
+                        color: const Color.fromARGB(255, 4, 35, 61),
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(5),
+                            topRight: Radius.circular(5)),
+                        width: screenWidth * 0.05)
+                  ]))
+              .toList(),
+        )));
   }
 }

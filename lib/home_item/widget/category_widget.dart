@@ -6,11 +6,14 @@ class CategoryContainerWidget extends StatelessWidget {
       {super.key,
       required this.image,
       required this.mainText,
-      required this.description});
+      required this.description,
+      required this.onTapEvent
+      });
 
   final ImageProvider image;
   final String mainText;
   final String description;
+  final void Function() onTapEvent;
 
   @override
   Widget build(BuildContext context) {
@@ -19,47 +22,50 @@ class CategoryContainerWidget extends StatelessWidget {
     final screenHeight = screenSize.height;
 
     return Center(
-      child: SizedBox(
-        width: screenWidth * 0.9,
-        height: screenHeight * 0.3,
-        child: Stack(
-          children: [
-            Container(
-              width: screenWidth * 0.9,
-              height: screenHeight * 0.25,
-              decoration: BoxDecoration(
-                  image: DecorationImage(image: image, fit: BoxFit.fill),
-                  borderRadius: BorderRadius.circular(20)),
-            ),
-            ClipPath(
-              clipper: CategoryCustomClipper(),
-              child: Container(
+      child: InkWell(
+        onTap: onTapEvent,
+        child: SizedBox(
+          width: screenWidth * 0.9,
+          height: screenHeight * 0.3,
+          child: Stack(
+            children: [
+              Container(
                 width: screenWidth * 0.9,
                 height: screenHeight * 0.25,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.black.withOpacity(0.4),
-                ),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.only(left: screenWidth * 0.05),
-                          child: MainTitle(title: mainText)),
-                      Padding(
-                          padding: EdgeInsets.only(left: screenWidth * 0.05),
-                          child: SizedBox(
-                            width: screenWidth * 0.3,
-                            child: Text(
-                              description,
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 14),
-                            ),
-                          ))
-                    ]),
+                    image: DecorationImage(image: image, fit: BoxFit.fill),
+                    borderRadius: BorderRadius.circular(20)),
               ),
-            )
-          ],
+              ClipPath(
+                clipper: CategoryCustomClipper(),
+                child: Container(
+                  width: screenWidth * 0.9,
+                  height: screenHeight * 0.25,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.black.withOpacity(0.4),
+                  ),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.only(left: screenWidth * 0.05),
+                            child: MainTitle(title: mainText)),
+                        Padding(
+                            padding: EdgeInsets.only(left: screenWidth * 0.05),
+                            child: SizedBox(
+                              width: screenWidth * 0.3,
+                              child: Text(
+                                description,
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 14),
+                              ),
+                            ))
+                      ]),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

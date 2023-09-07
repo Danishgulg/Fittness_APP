@@ -8,7 +8,9 @@ class ProfileDescriptionText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final screenWidth = screenSize.width;
+      final screenHeight = screenSize.height;
+       final screenWidth = screenSize.width;
+     final screenArea = (screenHeight + screenWidth) / 2;
     return SizedBox(
       width: screenWidth * 0.95,
       child: Padding(
@@ -19,6 +21,7 @@ class ProfileDescriptionText extends StatelessWidget {
           softWrap: true,
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 color: Colors.white,
+                fontSize: screenArea * 0.03
               ),
         ),
       ),

@@ -7,12 +7,17 @@ class DescriptionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final screenSize = MediaQuery.of(context).size;
+      final screenHeight = screenSize.height;
+       final screenWidth = screenSize.width;
+     final screenArea = (screenHeight + screenWidth) / 2;
+
     return Text(
       text,
       style: Theme.of(context)
           .textTheme
           .bodyLarge!
-          .copyWith(fontSize: 16, color: Colors.white),
+          .copyWith(fontSize: screenArea * 0.033, color: Colors.white),
     );
   }
 }

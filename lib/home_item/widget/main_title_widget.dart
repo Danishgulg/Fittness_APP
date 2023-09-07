@@ -5,12 +5,17 @@ class MainTitle extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
+     final screenSize = MediaQuery.of(context).size;
+      final screenHeight = screenSize.height;
+       final screenWidth = screenSize.width;
+     final screenArea = (screenHeight + screenWidth) / 2;
+
     return Text(
       title,
       style: Theme.of(context)
           .textTheme
           .bodyLarge!
-          .copyWith(fontSize: 24, color: Colors.white),
+          .copyWith(fontSize: screenArea * 0.045, color: Colors.white),
     );
   }
 }

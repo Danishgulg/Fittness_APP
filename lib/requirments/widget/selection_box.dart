@@ -19,9 +19,10 @@ class SelectionBox extends StatefulWidget {
 class _SelectionBoxState extends State<SelectionBox> {
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
-    final screenWidth = screenSize.width;
-    final screenHeight = screenSize.height;
+  final screenSize = MediaQuery.of(context).size;
+      final screenHeight = screenSize.height;
+       final screenWidth = screenSize.width;
+     final screenArea = (screenHeight + screenWidth) / 2;
 
     return GestureDetector(
       child: Container(
@@ -69,7 +70,7 @@ class _SelectionBoxState extends State<SelectionBox> {
                       borderRadius: BorderRadius.circular(30)),
                   child: Column(children: [
                     SizedBox(
-                      height: screenHeight * 0.01,
+                      height: screenHeight * 0.02,
                     ),
                     const MainTitle(text: "Weight"),
                     Padding(
@@ -79,13 +80,13 @@ class _SelectionBoxState extends State<SelectionBox> {
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
-                                .copyWith(color: Colors.white))),
+                                .copyWith(color: Colors.white, fontSize:  screenArea * 0.03))),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [widget.picker],
                     ),
                     SizedBox(
-                      height: screenHeight * 0.04,
+                      height: screenHeight * 0.01,
                     ),
                     Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                       GestureDetector(
@@ -95,6 +96,7 @@ class _SelectionBoxState extends State<SelectionBox> {
                               .textTheme
                               .bodyLarge!
                               .copyWith(
+                                fontSize: screenArea * 0.04,
                                   color: Colors.blue,
                                   fontWeight: FontWeight.bold),
                         ),
@@ -110,8 +112,9 @@ class _SelectionBoxState extends State<SelectionBox> {
                           'OK',
                           style: Theme.of(context)
                               .textTheme
-                              .bodyLarge!
+                              .bodyMedium!
                               .copyWith(
+                                fontSize: screenArea * 0.04,
                                   color: Colors.blue,
                                   fontWeight: FontWeight.bold),
                         ),

@@ -18,8 +18,9 @@ class CategoryContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final screenWidth = screenSize.width;
-    final screenHeight = screenSize.height;
+      final screenHeight = screenSize.height;
+       final screenWidth = screenSize.width;
+     final screenArea = (screenHeight + screenWidth) / 2;
 
     return Center(
       child: InkWell(
@@ -57,8 +58,8 @@ class CategoryContainerWidget extends StatelessWidget {
                               width: screenWidth * 0.3,
                               child: Text(
                                 description,
-                                style: const TextStyle(
-                                    color: Colors.white, fontSize: 14),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: screenArea * 0.025),
                               ),
                             ))
                       ]),

@@ -9,8 +9,15 @@ class MainButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+   
+  
+
     final screenSize = MediaQuery.of(context).size;
-    final screenWidth = screenSize.width;
+      final screenHeight = screenSize.height;
+       final screenWidth = screenSize.width;
+     final screenArea = (screenHeight + screenWidth) / 2;
+   
     return SizedBox(
       width: screenWidth * 0.9,
       child: CupertinoButton(
@@ -22,7 +29,7 @@ class MainButton extends StatelessWidget {
                   builder: (context) => const MainScreenPage(),
                 ));
           },
-          child: const Text("NEXT")),
+          child: Text("NEXT", style: TextStyle(fontSize: screenArea * 0.03),)),
     );
   }
 }

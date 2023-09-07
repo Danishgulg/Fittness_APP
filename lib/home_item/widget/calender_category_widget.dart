@@ -119,9 +119,10 @@ class MonthSelectingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
-    final screenHeight = screenSize.height;
-    final screenWidth = screenSize.width;
+ final screenSize = MediaQuery.of(context).size;
+      final screenHeight = screenSize.height;
+       final screenWidth = screenSize.width;
+     final screenArea = (screenHeight + screenWidth) / 2;
 
     return Padding(
       padding: EdgeInsets.only(left: screenWidth * 0.5),
@@ -159,7 +160,7 @@ class MonthSelectingButton extends StatelessWidget {
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
-                                      .copyWith(color: Colors.white))),
+                                      .copyWith(color: Colors.white, fontSize: screenArea * 0.03))),
                           SizedBox(
                             height: screenHeight * 0.04,
                           ),
@@ -189,9 +190,10 @@ class MonthSelectingButton extends StatelessWidget {
                                     'CANCEL',
                                     style: Theme.of(context)
                                         .textTheme
-                                        .bodyLarge!
+                                        .bodyMedium!
                                         .copyWith(
                                             color: Colors.blue,
+                                            fontSize: screenArea * 0.04,
                                             fontWeight: FontWeight.bold),
                                   ),
                                   onTap: () {
@@ -209,6 +211,7 @@ class MonthSelectingButton extends StatelessWidget {
                                         .bodyLarge!
                                         .copyWith(
                                             color: Colors.blue,
+                                            fontSize: screenArea * 0.04,
                                             fontWeight: FontWeight.bold),
                                   ),
                                   onTap: () {
@@ -263,9 +266,10 @@ class MonthPicker extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
-    final screenWidth = screenSize.width;
-    final screenHeight = screenSize.height;
+ final screenSize = MediaQuery.of(context).size;
+      final screenHeight = screenSize.height;
+       final screenWidth = screenSize.width;
+     final screenArea = (screenHeight + screenWidth) / 2;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -294,7 +298,7 @@ class MonthPicker extends StatelessWidget {
               return Center(
                 child: Text(
                   listOfMonth[index],
-                  style: const TextStyle(fontSize: 24.0, color: Colors.white),
+                  style:  TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
                 ),
               );
             }),

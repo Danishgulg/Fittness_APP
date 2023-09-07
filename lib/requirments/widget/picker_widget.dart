@@ -21,8 +21,9 @@ class HeightPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final screenWidth = screenSize.width;
-    final screenHeight = screenSize.height;
+      final screenHeight = screenSize.height;
+       final screenWidth = screenSize.width;
+     final screenArea = (screenHeight + screenWidth) / 2;
 
     return Row(
       children: [
@@ -50,7 +51,7 @@ class HeightPicker extends StatelessWidget {
               return Center(
                 child: Text(
                   '$index',
-                  style: const TextStyle(fontSize: 24.0, color: Colors.white),
+                  style:  TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
                 ),
               );
             }),
@@ -81,7 +82,7 @@ class HeightPicker extends StatelessWidget {
               return Center(
                 child: Text(
                   '$index',
-                  style: const TextStyle(fontSize: 24.0, color: Colors.white),
+                  style: TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
                 ),
               );
             }),
@@ -89,13 +90,13 @@ class HeightPicker extends StatelessWidget {
         ),
         const SizedBox(width: 20),
         SizedBox(
-          width: screenWidth * 0.1,
+          width: screenWidth * 0.13,
           height: screenHeight * 0.3,
           child: CupertinoPicker(
             itemExtent: 40.0,
             diameterRatio: 1,
             selectionOverlay: Container(
-              width: screenWidth * 0.13,
+              width: screenWidth * 0.15,
               height: screenHeight * 0.06,
               decoration: const BoxDecoration(
                   border: Border(
@@ -107,14 +108,14 @@ class HeightPicker extends StatelessWidget {
             scrollController:
                 FixedExtentScrollController(initialItem: selectedTypeHeight),
             onSelectedItemChanged: onHeightTypeChanged,
-            children: const [
+            children:  [
               Text(
                 'cm',
-                style: TextStyle(fontSize: 24, color: Colors.white),
+                style: TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
               ),
               Text(
                 'ft+in',
-                style: TextStyle(fontSize: 24, color: Colors.white),
+                style: TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
               ),
             ],
           ),
@@ -143,9 +144,10 @@ class WeightPicker extends StatelessWidget {
       required this.onWeightPointChanged});
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
-    final screenWidth = screenSize.width;
-    final screenHeight = screenSize.height;
+     final screenSize = MediaQuery.of(context).size;
+      final screenHeight = screenSize.height;
+       final screenWidth = screenSize.width;
+     final screenArea = (screenHeight + screenWidth) / 2;
 
     return Row(
       children: [
@@ -173,7 +175,7 @@ class WeightPicker extends StatelessWidget {
               return Center(
                 child: Text(
                   '$index',
-                  style: const TextStyle(fontSize: 24.0, color: Colors.white),
+                  style:  TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
                 ),
               );
             }),
@@ -204,7 +206,7 @@ class WeightPicker extends StatelessWidget {
               return Center(
                 child: Text(
                   '$index',
-                  style: const TextStyle(fontSize: 24.0, color: Colors.white),
+                  style: TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
                 ),
               );
             }),
@@ -230,14 +232,14 @@ class WeightPicker extends StatelessWidget {
             scrollController:
                 FixedExtentScrollController(initialItem: selectedTypeWeight),
             onSelectedItemChanged: onWeightTypeChanged,
-            children: const [
+            children: [
               Text(
                 'kg',
-                style: TextStyle(fontSize: 24, color: Colors.white),
+                style: TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
               ),
               Text(
                 'lbs',
-                style: TextStyle(fontSize: 24, color: Colors.white),
+                style: TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
               ),
             ],
           ),

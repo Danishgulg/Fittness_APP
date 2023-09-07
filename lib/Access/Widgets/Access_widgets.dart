@@ -1,7 +1,6 @@
 import 'package:fit_now/requirments/view/requirment_gathring_page.dart';
 import 'package:flutter/material.dart';
 
-
 //the button that navigates to the signUp screen
 
 class FirstScreenSignUpButton extends StatelessWidget {
@@ -11,6 +10,7 @@ class FirstScreenSignUpButton extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     final screenHeight = screenSize.height;
     final screenWidth = screenSize.width;
+    final screenArea = (screenHeight + screenWidth) / 2;
 
     return InkWell(
       child: Container(
@@ -26,16 +26,15 @@ class FirstScreenSignUpButton extends StatelessWidget {
               color: Colors.white,
             ),
             borderRadius: BorderRadius.circular(30)),
-        child: const Center(
+        child: Center(
             child: Text(
           'Sign Up',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontSize: screenArea * 0.03),
         )),
       ),
     );
   }
 }
-
 
 //the button that navigates to the SignIn screen
 
@@ -46,6 +45,7 @@ class FirstScreenSignInButton extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     final screenHeight = screenSize.height;
     final screenWidth = screenSize.width;
+    final screenArea = (screenHeight + screenWidth) / 2;
 
     return GestureDetector(
       child: Container(
@@ -55,12 +55,10 @@ class FirstScreenSignInButton extends StatelessWidget {
             color: Colors.black45,
             border: Border.all(color: Colors.white),
             borderRadius: BorderRadius.circular(30)),
-        child: const Center(
+        child: Center(
           child: Text(
             'Sign in',
-            style: TextStyle(
-              color: Colors.white,
-            ),
+            style: TextStyle(color: Colors.white, fontSize: screenArea * 0.03),
           ),
         ),
       ),
@@ -75,6 +73,8 @@ class AsGuestButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
+    final screenHeight = screenSize.height;
+     final screenArea = (screenHeight + screenWidth) / 2;
 
     return GestureDetector(
       child: SizedBox(
@@ -82,12 +82,17 @@ class AsGuestButton extends StatelessWidget {
         child: Center(
           child: Text(
             'as a Guest',
-            style: TextStyle(color: Colors.blue.shade300, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                color: Colors.blue.shade300, fontWeight: FontWeight.bold, fontSize:  screenArea * 0.025),
           ),
         ),
       ),
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => RequirmentGathring(),));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => RequirmentGathring(),
+            ));
       },
     );
   }

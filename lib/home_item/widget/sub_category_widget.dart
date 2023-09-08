@@ -1,8 +1,8 @@
-import 'package:fit_now/home_exercise_module/abs/view/choose_level_page.dart';
-import 'package:fit_now/home_exercise_module/arm/view/arm_choose_level_page.dart';
-import 'package:fit_now/home_exercise_module/chest/view/chest_choose_level_page.dart';
-import 'package:fit_now/home_exercise_module/leg/view/leg_choose_level_page.dart';
-import 'package:fit_now/home_exercise_module/shoulder_back/view/shoulder_choose_level_page.dart';
+import 'package:fit_now/home_exercise_module/exercises/abs/view/choose_level_page.dart';
+import 'package:fit_now/home_exercise_module/exercises/arm/view/arm_choose_level_page.dart';
+import 'package:fit_now/home_exercise_module/exercises/chest/view/chest_choose_level_page.dart';
+import 'package:fit_now/home_exercise_module/exercises/leg/view/leg_choose_level_page.dart';
+import 'package:fit_now/home_exercise_module/exercises/shoulder_back/view/shoulder_choose_level_page.dart';
 import 'package:flutter/material.dart';
 
 class SubCategoryListWidget extends StatelessWidget {

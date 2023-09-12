@@ -1,13 +1,15 @@
 //the widget which is used to select the the gender
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class GenderSelectionButton extends StatelessWidget {
   const GenderSelectionButton(
-      {super.key, required this.personImage, required this.backgroundColor});
+      {super.key, required this.personImage, required this.backgroundColor, required this.event});
 
   final Image personImage;
   final Color backgroundColor;
+  final  void Function() event;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +18,7 @@ class GenderSelectionButton extends StatelessWidget {
     final screenHeight = screenSize.height;
 
     return GestureDetector(
+      onTap: event,
       child: Stack(children: [
         Container(
           width: screenWidth * 0.3,
@@ -34,10 +37,29 @@ class GenderSelectionButton extends StatelessWidget {
               child: personImage),
         ),
       ]),
-      onTap: () {
-        //change the color of the backgroundContainer by adding in the Color state using bloc
-      },
     );
   }
 }
 
+// provider for gender selection
+
+final genderSelectedProvider = StateNotifierProvider<GenderSelection, GenderType>((ref) {
+  return GenderSelection();
+});
+
+
+class GenderSelection extends StateNotifier<GenderType>{
+  GenderSelection():super(GenderType.male);
+
+  void selectFemale(){
+    state = GenderType.female;
+  }
+  void selectMale(){
+    state = GenderType.male;
+  }
+}
+
+enum GenderType{
+  male,
+  female
+}

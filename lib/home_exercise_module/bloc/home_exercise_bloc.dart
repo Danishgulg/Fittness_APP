@@ -1,7 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:fit_now/home_exercise_module/model/exercise_requirment.dart';
 import 'package:meta/meta.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 part 'home_exercise_event.dart';
 part 'home_exercise_state.dart';
 

@@ -59,7 +59,7 @@ class WeeklyReportContainer extends StatelessWidget {
         height: screenHeight * 0.5,
         width: screenWidth * 0.9,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20), color: Colors.white30),
+            borderRadius: BorderRadius.circular(20), color: Colors.white.withOpacity(0.3)),
         child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           Container(
             height: screenHeight * 0.35,

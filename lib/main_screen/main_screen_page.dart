@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class MainScreenPage extends StatefulWidget {
   const MainScreenPage({super.key});
 
+  static const String pageName = 'MainScreenPage';
+
   @override
   State<MainScreenPage> createState() => _MainScreenPageState();
 }

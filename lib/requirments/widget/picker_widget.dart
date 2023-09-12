@@ -1,29 +1,27 @@
 // this is a picker based on the cupertino widget to pick the height
 
+import 'package:fit_now/requirments/bloc/height_bloc.dart/bloc/height_bloc.dart';
+import 'package:fit_now/requirments/bloc/weight_bloc/weight_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HeightPicker extends StatelessWidget {
   final int selectedHeight;
   final int selectedTypeHeight;
   final int selectedHeightPointValue;
-  final ValueChanged<int> onHeightChanged;
-  final ValueChanged<int> onHeightTypeChanged;
-  final ValueChanged<int> onHeightPointChanged;
 
-  HeightPicker(
-      {required this.selectedHeight,
-      required this.selectedTypeHeight,
-      required this.selectedHeightPointValue,
-      required this.onHeightChanged,
-      required this.onHeightTypeChanged,
-      required this.onHeightPointChanged});
+  HeightPicker({
+    required this.selectedHeight,
+    required this.selectedTypeHeight,
+    required this.selectedHeightPointValue,
+  });
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-      final screenHeight = screenSize.height;
-       final screenWidth = screenSize.width;
-     final screenArea = (screenHeight + screenWidth) / 2;
+    final screenHeight = screenSize.height;
+    final screenWidth = screenSize.width;
+    final screenArea = (screenHeight + screenWidth) / 2;
 
     return Row(
       children: [
@@ -46,12 +44,15 @@ class HeightPicker extends StatelessWidget {
             looping: true,
             scrollController:
                 FixedExtentScrollController(initialItem: selectedHeight),
-            onSelectedItemChanged: onHeightChanged,
+            onSelectedItemChanged: (value) {
+              context.read<HeightBloc>().add(HeightAddEvent(value));
+            },
             children: List<Widget>.generate(9, (index) {
               return Center(
                 child: Text(
                   '$index',
-                  style:  TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
+                  style: TextStyle(
+                      fontSize: screenArea * 0.04, color: Colors.white),
                 ),
               );
             }),
@@ -77,12 +78,15 @@ class HeightPicker extends StatelessWidget {
             looping: true,
             scrollController: FixedExtentScrollController(
                 initialItem: selectedHeightPointValue),
-            onSelectedItemChanged: onHeightPointChanged,
+            onSelectedItemChanged: (value) {
+              context.read<HeightBloc>().add(HeightPointValueAddEvent(value));
+            },
             children: List<Widget>.generate(11, (index) {
               return Center(
                 child: Text(
                   '$index',
-                  style: TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
+                  style: TextStyle(
+                      fontSize: screenArea * 0.04, color: Colors.white),
                 ),
               );
             }),
@@ -107,15 +111,21 @@ class HeightPicker extends StatelessWidget {
             ),
             scrollController:
                 FixedExtentScrollController(initialItem: selectedTypeHeight),
-            onSelectedItemChanged: onHeightTypeChanged,
-            children:  [
+            onSelectedItemChanged: (value) {
+              context
+                  .read<HeightBloc>()
+                  .add(HeightTypeAddEvent(value == 0 ? 'cm' : 'ft+in'));
+            },
+            children: [
               Text(
                 'cm',
-                style: TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
+                style:
+                    TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
               ),
               Text(
                 'ft+in',
-                style: TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
+                style:
+                    TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
               ),
             ],
           ),
@@ -131,23 +141,19 @@ class WeightPicker extends StatelessWidget {
   final int selectedWeight;
   final int selectedTypeWeight;
   final int selectedWeightPointValue;
-  final ValueChanged<int> onWeightChanged;
-  final ValueChanged<int> onWeightTypeChanged;
-  final ValueChanged<int> onWeightPointChanged;
 
-  WeightPicker(
-      {required this.selectedWeight,
-      required this.selectedTypeWeight,
-      required this.selectedWeightPointValue,
-      required this.onWeightChanged,
-      required this.onWeightTypeChanged,
-      required this.onWeightPointChanged});
+  WeightPicker({
+    required this.selectedWeight,
+    required this.selectedTypeWeight,
+    required this.selectedWeightPointValue,
+  });
+
   @override
   Widget build(BuildContext context) {
-     final screenSize = MediaQuery.of(context).size;
-      final screenHeight = screenSize.height;
-       final screenWidth = screenSize.width;
-     final screenArea = (screenHeight + screenWidth) / 2;
+    final screenSize = MediaQuery.of(context).size;
+    final screenHeight = screenSize.height;
+    final screenWidth = screenSize.width;
+    final screenArea = (screenHeight + screenWidth) / 2;
 
     return Row(
       children: [
@@ -170,12 +176,15 @@ class WeightPicker extends StatelessWidget {
             looping: true,
             scrollController:
                 FixedExtentScrollController(initialItem: selectedWeight),
-            onSelectedItemChanged: onWeightChanged,
+            onSelectedItemChanged: (value) {
+              context.read<WeightBloc>().add(WeightAddEvent(value));
+            },
             children: List<Widget>.generate(663, (index) {
               return Center(
                 child: Text(
                   '$index',
-                  style:  TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
+                  style: TextStyle(
+                      fontSize: screenArea * 0.04, color: Colors.white),
                 ),
               );
             }),
@@ -201,12 +210,15 @@ class WeightPicker extends StatelessWidget {
             looping: true,
             scrollController: FixedExtentScrollController(
                 initialItem: selectedWeightPointValue),
-            onSelectedItemChanged: onWeightPointChanged,
+            onSelectedItemChanged: (value) {
+              context.read<WeightBloc>().add(WeightPointValueAddEvent(value));
+            },
             children: List<Widget>.generate(10, (index) {
               return Center(
                 child: Text(
                   '$index',
-                  style: TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
+                  style: TextStyle(
+                      fontSize: screenArea * 0.04, color: Colors.white),
                 ),
               );
             }),
@@ -231,15 +243,21 @@ class WeightPicker extends StatelessWidget {
             ),
             scrollController:
                 FixedExtentScrollController(initialItem: selectedTypeWeight),
-            onSelectedItemChanged: onWeightTypeChanged,
+            onSelectedItemChanged: (value) {
+              context
+                  .read<WeightBloc>()
+                  .add(WeightTypeAddEvent(value == 0 ? 'kg' : 'lbs'));
+            },
             children: [
               Text(
                 'kg',
-                style: TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
+                style:
+                    TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
               ),
               Text(
                 'lbs',
-                style: TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
+                style:
+                    TextStyle(fontSize: screenArea * 0.04, color: Colors.white),
               ),
             ],
           ),
@@ -248,3 +266,38 @@ class WeightPicker extends StatelessWidget {
     );
   }
 }
+
+// final weightProvider =
+//     StateNotifierProvider.family<WeightMeasure, double, double>((ref, value) {
+//   return WeightMeasure(value);
+// });
+
+// class WeightMeasure extends StateNotifier<double> {
+//   double value;
+
+//   WeightMeasure(this.value) : super(value);
+
+//   double actualWeightValue = 0;
+//   String weightType = 'kg';
+
+//   void setWeight(double value) {
+//     actualWeightValue = value;
+//   }
+
+//   void setWeightPointValue(double value) {
+//     actualWeightValue = actualWeightValue + (value * 0.1);
+//   }
+
+//   void setWeightType(int index) {
+//     if (index == 0) {
+//       weightType = 'kg';
+//     } else {
+//       weightType = 'lbs';
+//     }
+//   }
+
+//   void setVlues(){
+//     state = actualWeightValue;
+//   }
+// }
+

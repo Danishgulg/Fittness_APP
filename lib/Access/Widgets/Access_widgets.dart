@@ -88,11 +88,9 @@ class AsGuestButton extends StatelessWidget {
         ),
       ),
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => RequirmentGathring(),
-            ));
+        Navigator.pushNamed(
+            context, RequirmentGathringPage.pageName
+        );
       },
     );
   }

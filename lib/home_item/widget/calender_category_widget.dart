@@ -25,7 +25,7 @@ class CalenderContainerWidget extends StatelessWidget {
 
     return Container(
       width: screenWidth * 0.9,
-      height: screenHeight * 0.3,
+      height: screenHeight * 0.4,
       decoration: BoxDecoration(
         color: Colors.blue.shade900.withOpacity(0.4),
         borderRadius: BorderRadius.circular(20),
@@ -79,7 +79,7 @@ class CustomCalenderWidget extends StatelessWidget {
               padding: EdgeInsets.all(screenWidth * 0.02),
               child: Container(
                 height: screenHeight * 0.1,
-                width: screenWidth * 0.12, // Adjust width as needed
+                width: screenWidth * 0.15, // Adjust width as needed
                 decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.4),
                     borderRadius: BorderRadius.circular(10)),
@@ -88,16 +88,16 @@ class CustomCalenderWidget extends StatelessWidget {
                   children: [
                     Text(
                       '${dataList[index].date}',
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: (screenHeight + screenWidth)/2 * 0.03,
                       ),
                     ),
                     Text(
                       dataList[index].dayCode,
-                      style: const TextStyle(
+                      style:  TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: (screenHeight + screenWidth)/2 * 0.025,
                       ),
                     ),
                   ],
@@ -139,11 +139,12 @@ class MonthSelectingButton extends StatelessWidget {
                 child: Center(
                   child: Container(
                     width: screenWidth * 0.9,
-                    height: screenHeight * 0.4,
+                    height: screenHeight * 0.5,
                     decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 4, 35, 61),
                         borderRadius: BorderRadius.circular(30)),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
@@ -160,7 +161,7 @@ class MonthSelectingButton extends StatelessWidget {
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
-                                      .copyWith(color: Colors.white, fontSize: screenArea * 0.03))),
+                                      .copyWith(color: Colors.white, fontSize: screenArea * 0.025))),
                           SizedBox(
                             height: screenHeight * 0.04,
                           ),
@@ -182,46 +183,51 @@ class MonthSelectingButton extends StatelessWidget {
                             ],
                             onWeightChanged: (value) {},
                           ),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                GestureDetector(
-                                  child: Text(
-                                    'CANCEL',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium!
-                                        .copyWith(
-                                            color: Colors.blue,
-                                            fontSize: screenArea * 0.04,
-                                            fontWeight: FontWeight.bold),
+
+                          SizedBox(height: screenHeight * 0.05,),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  GestureDetector(
+                                    child: Text(
+                                      'CANCEL',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium!
+                                          .copyWith(
+                                              color: Colors.blue,
+                                              fontSize: screenHeight * 0.02,
+                                              fontWeight: FontWeight.bold),
+                                    ),
+                                    onTap: () {
+                                      Navigator.of(context).pop();
+                                    },
                                   ),
-                                  onTap: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                ),
-                                SizedBox(
-                                  width: screenWidth * 0.1,
-                                ),
-                                GestureDetector(
-                                  child: Text(
-                                    'OK',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge!
-                                        .copyWith(
-                                            color: Colors.blue,
-                                            fontSize: screenArea * 0.04,
-                                            fontWeight: FontWeight.bold),
+                                  SizedBox(
+                                    width: screenWidth * 0.1,
                                   ),
-                                  onTap: () {
-                                    //here we can add the values of weight to the event stream
-                                  },
-                                ),
-                                SizedBox(
-                                  width: screenWidth * 0.05,
-                                )
-                              ]),
+                                  GestureDetector(
+                                    child: Text(
+                                      'OK',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge!
+                                          .copyWith(
+                                              color: Colors.blue,
+                                              fontSize: screenArea * 0.04,
+                                              fontWeight: FontWeight.bold),
+                                    ),
+                                    onTap: () {
+                                      //here we can add the values of weight to the event stream
+                                    },
+                                  ),
+                                  SizedBox(
+                                    width: screenWidth * 0.05,
+                                  )
+                                ]),
+                          ),
                         ]),
                   ),
                 ),

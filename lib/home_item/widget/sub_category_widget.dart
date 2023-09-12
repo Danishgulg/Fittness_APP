@@ -18,23 +18,23 @@ class SubCategoryListWidget extends StatelessWidget {
      final List<SubCategoryContainerWidget> list =  [
     SubCategoryContainerWidget(
         image: const AssetImage("assets/images/running.jpg"), description: 'Running', event: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AbsChooseLevelPage(),));
+          Navigator.of(context).pushNamed(AbsChooseLevelPage.pageName);
         },),
     SubCategoryContainerWidget(
         image: const AssetImage("assets/images/running.jpg"), description: 'Running', event: () {
-           Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ArmChooseLevelPage(),));
+           Navigator.of(context).pushNamed(ArmChooseLevelPage.pageName);
         },),
     SubCategoryContainerWidget(
         image: const AssetImage("assets/images/running.jpg"), description: 'Running', event: () {
-           Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LegChooseLevelPage(),));
+           Navigator.of(context).pushNamed(LegChooseLevelPage.pageName);
         },),
     SubCategoryContainerWidget(
         image: const AssetImage("assets/images/running.jpg"), description: 'Running', event: () {
-           Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ChestChooseLevelPage(),));
+           Navigator.of(context).pushNamed(ChestChooseLevelPage.pageName);
         },),
     SubCategoryContainerWidget(
         image: const AssetImage("assets/images/running.jpg"), description: 'Running', event: () {
-           Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ShoulderChooseLevelPage(),));
+           Navigator.of(context).pushNamed(ShoulderChooseLevelPage.pageName);
         },),
   ];
 

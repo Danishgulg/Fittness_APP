@@ -6,6 +6,8 @@ import 'package:fit_now/requirments/widget/main_title.dart';
 class RunningPage extends StatefulWidget {
   const RunningPage({super.key});
 
+  static const String pageName = 'RunningPage';
+
   @override
   State<RunningPage> createState() => _RunningPageState();
 }

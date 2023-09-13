@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key});
 
+  static const String pageName = 'HomePage';
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -31,7 +33,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 SizedBox(height: screenHeight * 0.1),
                 Center(child: CalenderContainerWidget()),
-                SizedBox(height: screenHeight * 0.05),
+                SizedBox(height: screenHeight * 0.1),
                 Padding(
                     padding: EdgeInsets.only(left: screenWidth * 0.06),
                     child:
@@ -44,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                     child: CategoryContainerWidget(
                   image: const AssetImage('assets/images/running.jpg'),
                   onTapEvent: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const RunningPage(),));
+                    Navigator.of(context).pushNamed( RunningPage.pageName,);
                   },
                   description:
                       'This will measure your step count along with caliries',
@@ -55,7 +57,7 @@ class _HomePageState extends State<HomePage> {
 
                  Center(
                     child: CategoryContainerWidget(
-                  image: AssetImage('assets/images/cycling.jpg'),
+                  image: const AssetImage('assets/images/cycling.jpg'),
                   description: 'you can select the rute by using map',
                   mainText: "Cycling",
                   onTapEvent: () {},

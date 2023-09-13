@@ -59,7 +59,7 @@ class CategoryContainerWidget extends StatelessWidget {
                               child: Text(
                                 description,
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: screenArea * 0.025),
+                                    color: Colors.white, fontSize: screenArea * 0.02),
                               ),
                             ))
                       ]),

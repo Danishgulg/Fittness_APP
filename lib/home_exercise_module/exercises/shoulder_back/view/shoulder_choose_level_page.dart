@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class ShoulderChooseLevelPage extends StatefulWidget {
   const ShoulderChooseLevelPage({super.key});
 
+  static const String pageName = 'ShoulderChooseLevelPage';
+
   @override
   State<ShoulderChooseLevelPage> createState() => _ShoulderChooseLevelPageState();
 }

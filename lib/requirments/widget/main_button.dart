@@ -23,11 +23,9 @@ class MainButton extends StatelessWidget {
       child: CupertinoButton(
           color: Colors.blue,
           onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MainScreenPage(),
-                ));
+            Navigator.pushNamed(
+                context, MainScreenPage.pageName
+               );
           },
           child: Text("NEXT", style: TextStyle(fontSize: screenArea * 0.03),)),
     );

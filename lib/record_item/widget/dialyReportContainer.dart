@@ -21,7 +21,7 @@ class DialyReportContainer extends StatelessWidget {
         height: screenHeight * 0.5,
         width: screenWidth * 0.9,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20), color: Colors.white30),
+            borderRadius: BorderRadius.circular(20), color: Colors.white.withOpacity(0.3)),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Align(
             alignment: Alignment.centerLeft,

@@ -2,9 +2,9 @@ import 'package:fit_now/Access/Widgets/Access_widgets.dart';
 import 'package:flutter/material.dart';
 
 class AccessPage extends StatelessWidget {
-  const AccessPage({super.key, required this.title});
+  const AccessPage({super.key});
 
-  final String title;
+  static const String pageName = 'AccessPage';
 
   @override
   Widget build(BuildContext context) {

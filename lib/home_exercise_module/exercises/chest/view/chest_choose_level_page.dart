@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class ChestChooseLevelPage extends StatefulWidget {
   const ChestChooseLevelPage({super.key});
 
+  static const String pageName = 'ChestChooseLevelPage';
+
   @override
   State<ChestChooseLevelPage> createState() => _ChestChooseLevelPageState();
 }

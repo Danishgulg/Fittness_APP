@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class LegChooseLevelPage extends StatefulWidget {
   const LegChooseLevelPage({super.key});
 
+  static const String pageName = 'LegChooseLevelPage';
   @override
   State<LegChooseLevelPage> createState() => _LegChooseLevelPageState();
 }

@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class ArmChooseLevelPage extends StatefulWidget {
   const ArmChooseLevelPage({super.key});
 
+  static const String pageName = 'ArmChooseLevelPage';
+
   @override
   State<ArmChooseLevelPage> createState() => _ArmChooseLevelPageState();
 }

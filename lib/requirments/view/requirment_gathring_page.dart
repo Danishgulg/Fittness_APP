@@ -34,6 +34,9 @@ class _RequirmentGathringPageState extends State<RequirmentGathringPage> {
   //dialog color
   // const Color.fromARGB(255, 4, 35, 61)
 
+  //button color
+  //Color.fromARGB(255, 73, 133, 182)
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;

@@ -1,9 +1,13 @@
+import 'package:fit_now/home_cycling_tracking_module/view/cycling_tracking_page.dart';
 import 'package:fit_now/home_item/widget/calender_category_widget.dart';
 import 'package:fit_now/home_item/widget/category_widget.dart';
 import 'package:fit_now/home_item/widget/description_text_widget.dart';
 import 'package:fit_now/home_item/widget/sub_category_widget.dart';
 import 'package:fit_now/home_running_module/view/running_page_widget.dart';
+import 'package:fit_now/home_running_module/widget/permission_dialog_button.dart';
+import 'package:fit_now/requirments/widget/main_title.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key});
@@ -42,11 +46,13 @@ class _HomePageState extends State<HomePage> {
 
                 //running container
 
-                 Center(
+                Center(
                     child: CategoryContainerWidget(
                   image: const AssetImage('assets/images/running.jpg'),
                   onTapEvent: () {
-                    Navigator.of(context).pushNamed( RunningPage.pageName,);
+                    Navigator.of(context).pushNamed(
+                      RunningPage.pageName,
+                    );
                   },
                   description:
                       'This will measure your step count along with caliries',
@@ -55,13 +61,21 @@ class _HomePageState extends State<HomePage> {
 
                 //cycling Container
 
-                 Center(
+                Center(
                     child: CategoryContainerWidget(
-                  image: const AssetImage('assets/images/cycling.jpg'),
-                  description: 'you can select the rute by using map',
-                  mainText: "Cycling",
-                  onTapEvent: () {},
-                )),
+                        image: const AssetImage('assets/images/cycling.jpg'),
+                        description: 'you can select the rute by using map',
+                        mainText: "Cycling",
+                        onTapEvent: () async {
+                      
+                            // ignore: use_build_context_synchronously
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return CyclingTrackingPage();
+                              },
+                            ));
+                          
+                        })),
 
                 Padding(
                     padding: EdgeInsets.only(left: screenWidth * 0.06),

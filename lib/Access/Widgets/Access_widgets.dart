@@ -1,4 +1,6 @@
 import 'package:fit_now/requirments/view/requirment_gathring_page.dart';
+import 'package:fit_now/sign_in/view/sign_in_page.dart';
+import 'package:fit_now/sign_up/view/sign_up_page.dart';
 import 'package:flutter/material.dart';
 
 //the button that navigates to the signUp screen
@@ -32,6 +34,9 @@ class FirstScreenSignUpButton extends StatelessWidget {
           style: TextStyle(color: Colors.white, fontSize: screenArea * 0.03),
         )),
       ),
+      onTap: () {
+        Navigator.pushNamed(context, Signup.pageName);
+      },
     );
   }
 }
@@ -62,6 +67,9 @@ class FirstScreenSignInButton extends StatelessWidget {
           ),
         ),
       ),
+      onTap: () {
+        Navigator.of(context).pushNamed(SignInPage.pageName);
+      },
     );
   }
 }
@@ -74,7 +82,7 @@ class AsGuestButton extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
     final screenHeight = screenSize.height;
-     final screenArea = (screenHeight + screenWidth) / 2;
+    final screenArea = (screenHeight + screenWidth) / 2;
 
     return GestureDetector(
       child: SizedBox(
@@ -83,14 +91,14 @@ class AsGuestButton extends StatelessWidget {
           child: Text(
             'as a Guest',
             style: TextStyle(
-                color: Colors.blue.shade300, fontWeight: FontWeight.bold, fontSize:  screenArea * 0.025),
+                color: Colors.blue.shade300,
+                fontWeight: FontWeight.bold,
+                fontSize: screenArea * 0.025),
           ),
         ),
       ),
       onTap: () {
-        Navigator.pushNamed(
-            context, RequirmentGathringPage.pageName
-        );
+        Navigator.pushNamed(context, RequirmentGathringPage.pageName);
       },
     );
   }

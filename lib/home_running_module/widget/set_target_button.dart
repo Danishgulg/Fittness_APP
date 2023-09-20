@@ -29,61 +29,61 @@ class SetTargetButton extends StatelessWidget {
           //     );
           //   } else if (await Permission.activityRecognition.isDenied) {
           //     // ignore: use_build_context_synchronously
-          //     showDialog(
-          //         barrierDismissible: true,
-          //         context: context,
-          //         builder: (context) {
-          //           return BackdropFilter(
-          //             filter: const ColorFilter.linearToSrgbGamma(),
-          //             child: Center(
-          //               child: Container(
-          //                 width: screenWidth * 0.9,
-          //                 height: screenHeight * 0.45,
-          //                 decoration: BoxDecoration(
-          //                   color: const Color.fromARGB(255, 4, 35, 61),
-          //                   borderRadius: BorderRadius.circular(30),
-          //                 ),
-          //                 child: Column(
-          //                   children: [
-          //                     SizedBox(
-          //                       height: screenHeight * 0.01,
-          //                     ),
-          //                     const MainTitle(
-          //                       text: "Permission",
-          //                     ),
-          //                     Padding(
-          //                         padding: EdgeInsets.only(
-          //                             left: screenWidth * 0.05,
-          //                             top: screenHeight * 0.05),
-          //                         child: Text(
-          //                             'ACtivity Recognition permission is required for tracking the stpes, please allow the permission in settings ',
-          //                             softWrap: true,
-          //                             style: Theme.of(context)
-          //                                 .textTheme
-          //                                 .bodyMedium!
-          //                                 .copyWith(
-          //                                     color: Colors.white,
-          //                                     fontSize: screenArea * 0.04))),
-          //                     Padding(
-          //                       padding: EdgeInsets.only(
-          //                           top: screenHeight * 0.03,
-          //                           right: screenWidth * 0.05),
-          //                       child: Align(
-          //                           alignment: Alignment.bottomRight,
-          //                           child: PermissionDialogButton(
-          //                             event: () {
-          //                                openAppSettings();
+              // showDialog(
+              //     barrierDismissible: true,
+              //     context: context,
+              //     builder: (context) {
+              //       return BackdropFilter(
+              //         filter: const ColorFilter.linearToSrgbGamma(),
+              //         child: Center(
+              //           child: Container(
+              //             width: screenWidth * 0.9,
+              //             height: screenHeight * 0.45,
+              //             decoration: BoxDecoration(
+              //               color: const Color.fromARGB(255, 4, 35, 61),
+              //               borderRadius: BorderRadius.circular(30),
+              //             ),
+              //             child: Column(
+              //               children: [
+              //                 SizedBox(
+              //                   height: screenHeight * 0.01,
+              //                 ),
+              //                 const MainTitle(
+              //                   text: "Permission",
+              //                 ),
+              //                 Padding(
+              //                     padding: EdgeInsets.only(
+              //                         left: screenWidth * 0.05,
+              //                         top: screenHeight * 0.05),
+              //                     child: Text(
+              //                         'ACtivity Recognition permission is required for tracking the stpes, please allow the permission in settings ',
+              //                         softWrap: true,
+              //                         style: Theme.of(context)
+              //                             .textTheme
+              //                             .bodyMedium!
+              //                             .copyWith(
+              //                                 color: Colors.white,
+              //                                 fontSize: screenArea * 0.04))),
+              //                 Padding(
+              //                   padding: EdgeInsets.only(
+              //                       top: screenHeight * 0.03,
+              //                       right: screenWidth * 0.05),
+              //                   child: Align(
+              //                       alignment: Alignment.bottomRight,
+              //                       child: PermissionDialogButton(
+              //                         event: () {
+              //                            openAppSettings();
                                        
-          //                             },
-          //                             text: 'Settings',
-          //                           )),
-          //                     )
-          //                   ],
-          //                 ),
-          //               ),
-          //             ),
-          //           );
-          //         });
+              //                         },
+              //                         text: 'Settings',
+              //                       )),
+              //                 )
+              //               ],
+              //             ),
+              //           ),
+              //         ),
+              //       );
+              //     });
           //   }
           // } on Exception catch (_) {
           //   // ignore: use_build_context_synchronously

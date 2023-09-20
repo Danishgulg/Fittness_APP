@@ -13,11 +13,14 @@ import 'package:fit_now/main_screen/main_screen_page.dart';
 import 'package:fit_now/requirments/bloc/height_bloc.dart/bloc/height_bloc.dart';
 import 'package:fit_now/requirments/bloc/weight_bloc/weight_bloc.dart';
 import 'package:fit_now/requirments/view/requirment_gathring_page.dart';
+import 'package:fit_now/sign_in/view/sign_in_page.dart';
+import 'package:fit_now/sign_up/bloc/PasswordField/password_field_bloc.dart';
+import 'package:fit_now/sign_up/bloc/check_password/check_password_field_bloc.dart';
+import 'package:fit_now/sign_up/view/sign_up_page.dart';
 import 'package:fit_now/step_tracking_running_module/view/step_tracking_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 void main() async {
   WidgetsFlutterBinding();
@@ -33,7 +36,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-
         // home exercise module bloc
 
         BlocProvider(
@@ -45,7 +47,16 @@ class MyApp extends StatelessWidget {
           create: (context) => WeightBloc(),
         ),
         //requirment bloc
-        BlocProvider(create: (context) => HeightBloc(),)
+        BlocProvider(
+          create: (context) => HeightBloc(),
+        ),
+        //signUp bloc
+        BlocProvider(
+          create: (context) => PasswordFieldBloc(),
+        ),
+        BlocProvider(
+          create: (context) => CheckPasswordFieldBloc(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -60,8 +71,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
 
 Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -112,6 +121,14 @@ Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
     case ShoulderChooseLevelPage.pageName:
       return CupertinoPageRoute(
         builder: (context) => const ShoulderChooseLevelPage(),
+      );
+    case Signup.pageName:
+      return CupertinoPageRoute(
+        builder: (context) => const Signup(),
+      );
+      case SignInPage.pageName:
+      return CupertinoPageRoute(
+        builder: (context) => const SignInPage(),
       );
     default:
       return null;

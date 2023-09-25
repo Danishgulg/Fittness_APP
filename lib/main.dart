@@ -2,7 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:fit_now/Access/View/access_view.dart';
 import 'package:fit_now/firebase_options.dart';
 import 'package:fit_now/home_exercise_module/bloc/home_exercise_bloc.dart';
-import 'package:fit_now/home_exercise_module/exercises/abs/view/choose_level_page.dart';
+import 'package:fit_now/home_exercise_module/exercises/abs/view/abs_choose_level_page.dart';
+import 'package:fit_now/home_exercise_module/exercises/abs/view/abs_exercise_page.dart';
 import 'package:fit_now/home_exercise_module/exercises/arm/view/arm_choose_level_page.dart';
 import 'package:fit_now/home_exercise_module/exercises/chest/view/chest_choose_level_page.dart';
 import 'package:fit_now/home_exercise_module/exercises/leg/view/leg_choose_level_page.dart';
@@ -56,7 +57,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => CheckPasswordFieldBloc(),
-        )
+        ),
+        
+       
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -126,7 +129,7 @@ Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
       return CupertinoPageRoute(
         builder: (context) => const Signup(),
       );
-      case SignInPage.pageName:
+    case SignInPage.pageName:
       return CupertinoPageRoute(
         builder: (context) => const SignInPage(),
       );

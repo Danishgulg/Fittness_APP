@@ -91,9 +91,8 @@ class SetTargetButton extends StatelessWidget {
           //       content: Text('The Step Counter Sencer is not avaliable')));
           // }
         },
-        color: Colors.blue,
+        color: const Color.fromARGB(255, 73, 133, 182),
         elevation: 10,
-        splashColor: Colors.blue.shade900,
         shape:
             ContinuousRectangleBorder(borderRadius: BorderRadius.circular(30)),
         child: Text('Set', style: TextStyle(color: Colors.white, fontSize: screenArea * 0.04),),

@@ -9,7 +9,6 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_places_flutter/model/prediction.dart';
-// ignore: depend_on_referenced_packages
 import 'package:permission_handler/permission_handler.dart';
 import 'package:google_places_flutter/google_places_flutter.dart';
 
@@ -59,8 +58,10 @@ class _CyclingTrackingPageState extends State<CyclingTrackingPage> {
       result.points.forEach((element) {
         polypointsList.add(LatLng(element.latitude, element.longitude));
       });
-
       setState(() {});
+      if (mounted) {
+        return;
+      }
     }
   }
 
@@ -264,49 +265,7 @@ class _CyclingTrackingPageState extends State<CyclingTrackingPage> {
                     alignment: Alignment.bottomCenter,
                     child: StartRunningButton(isCount: false)),
               ),
-              Align(
-                  alignment: Alignment.center,
-                  child: SingleChildScrollView(
-                    child: GooglePlaceAutoCompleteTextField(
-                      textEditingController: textEditingController,
-                      googleAPIKey: _mapGoogleApiKey,
-                      inputDecoration: InputDecoration(),
-                      debounceTime: 800, // default 600 ms,
-                      isLatLngRequired:
-                          true, // if you required coordinates from place detail
-                      getPlaceDetailWithLatLng: (Prediction prediction) {
-                        // this method will return latlng with place detail
-                        print("placeDetails" + prediction.lng.toString());
-                      }, // this callback is called when isLatLngRequired is true
-                      itemClick: (Prediction prediction) {
-                        textEditingController.text = prediction.description!;
-                        textEditingController.selection =
-                            TextSelection.fromPosition(TextPosition(
-                                offset: prediction.description!.length));
-                      },
-                      // if we want to make custom list item builder
-                      itemBuilder: (context, index, Prediction prediction) {
-                        return Container(
-                          padding: EdgeInsets.all(10),
-                          child: Row(
-                            children: [
-                              Icon(Icons.location_on),
-                              SizedBox(
-                                width: 7,
-                              ),
-                              Expanded(
-                                  child:
-                                      Text("${prediction.description ?? ""}"))
-                            ],
-                          ),
-                        );
-                      },
-                      // if you want to add seperator between list items
-                      seperatedBuilder: Divider(),
-                      // want to show close icon
-                      isCrossBtnShown: true,
-                    ),
-                  )),
+
             ],
           ),
         ),

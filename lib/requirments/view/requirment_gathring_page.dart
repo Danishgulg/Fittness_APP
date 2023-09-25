@@ -25,7 +25,7 @@ class _RequirmentGathringPageState extends State<RequirmentGathringPage> {
   String weightType = 'kg';
   int pointWeightValue = 3;
 
-  // main page color
+  //main page color
   //  const Color.fromARGB(255, 4, 30, 60),
 
   //TextField color
@@ -34,8 +34,11 @@ class _RequirmentGathringPageState extends State<RequirmentGathringPage> {
   //dialog color
   // const Color.fromARGB(255, 4, 35, 61)
 
+  //item container color
+  // Color.fromARGB(255, 34, 63, 108)
+
   //button color
-  //Color.fromARGB(255, 73, 133, 182)
+  // Color.fromARGB(255, 73, 133, 182)
 
   @override
   Widget build(BuildContext context) {

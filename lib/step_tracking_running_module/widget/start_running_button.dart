@@ -19,9 +19,10 @@ class StartRunningButton extends StatelessWidget {
         onPressed: () {
           // getStepCount();
         },
-        color: !isCount? Colors.blue: Colors.grey.shade300,
+        color: !isCount
+            ? const Color.fromARGB(255, 73, 133, 182)
+            : Colors.grey.shade300,
         elevation: 10,
-        splashColor: Colors.blue.shade900,
         shape:
             ContinuousRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Align(

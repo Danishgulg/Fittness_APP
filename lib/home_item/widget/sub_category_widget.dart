@@ -1,4 +1,4 @@
-import 'package:fit_now/home_exercise_module/exercises/abs/view/choose_level_page.dart';
+import 'package:fit_now/home_exercise_module/exercises/abs/view/abs_choose_level_page.dart';
 import 'package:fit_now/home_exercise_module/exercises/arm/view/arm_choose_level_page.dart';
 import 'package:fit_now/home_exercise_module/exercises/chest/view/chest_choose_level_page.dart';
 import 'package:fit_now/home_exercise_module/exercises/leg/view/leg_choose_level_page.dart';
@@ -46,9 +46,9 @@ class SubCategoryListWidget extends StatelessWidget {
       child: Container(
         width: screenWidth * 0.9,
         height: screenHeight * 0.4,
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 4, 35, 61),
-            borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+            color:  Colors.blue.shade900.withOpacity(0.4),
+            borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20), topRight: Radius.circular(20))),
         child: Padding(
           padding: EdgeInsets.only(

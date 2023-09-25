@@ -10,6 +10,7 @@ final class HomeExerciseInitialState extends HomeExerciseState {}
 final class ExerciseLoadingState extends HomeExerciseState {}
 
 final class ExerciseLoadedState extends HomeExerciseState {
-  const ExerciseLoadedState({required this.list,});
+  const ExerciseLoadedState({required this.list, required this.gifList});
   final List<ExerciseRequirments> list;
+  final List<String> gifList;
 }

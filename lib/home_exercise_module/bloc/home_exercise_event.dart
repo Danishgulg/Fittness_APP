@@ -7,30 +7,11 @@ sealed class HomeExerciseEvent {
 
 @immutable
 class AbsExerciseEvent extends HomeExerciseEvent{
-  const AbsExerciseEvent({required this.exerciseData});
-  final List<ExerciseRequirments> exerciseData;
+  const AbsExerciseEvent({required this.exerciseTypeName, required this.levelOfexercise, required this.gifBucketRef});
+  final String exerciseTypeName;
+  final String levelOfexercise;
+  final String gifBucketRef;
 }
 
-@immutable
-class ArmExerciseEvent extends HomeExerciseEvent{
-  const ArmExerciseEvent({required this.exerciseData});
-  final List<ExerciseRequirments> exerciseData;
-}
-@immutable
-class LegExerciseEvent extends HomeExerciseEvent{
-  const LegExerciseEvent({required this.exerciseData});
-  final List<ExerciseRequirments> exerciseData;
-}
 
-@immutable
-class ChestExerciseEvent extends HomeExerciseEvent{
-  const ChestExerciseEvent({required this.exerciseData});
-  final List<ExerciseRequirments> exerciseData;
-}
-
-@immutable
-class ShoulderExerciseEvent extends HomeExerciseEvent{
-  const ShoulderExerciseEvent({required this.exerciseData});
-  final List<ExerciseRequirments> exerciseData;
-}
 

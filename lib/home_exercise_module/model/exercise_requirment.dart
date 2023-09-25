@@ -2,40 +2,40 @@
 import 'dart:convert';
 
 class ExerciseRequirments {
-  String titleOfExercise;
-  String numberOfTimes;
-  String addressOfGif;
+  String MainTitle;
+  String advantage;
+  String times;
   ExerciseRequirments({
-    required this.titleOfExercise,
-    required this.numberOfTimes,
-    required this.addressOfGif,
+    required this.MainTitle,
+    required this.advantage,
+    required this.times,
   });
 
   ExerciseRequirments copyWith({
-    String? titleOfExercise,
-    String? numberOfTimes,
-    String? addressOfGif,
+    String? MainTitle,
+    String? advantage,
+    String? times,
   }) {
     return ExerciseRequirments(
-      titleOfExercise: titleOfExercise ?? this.titleOfExercise,
-      numberOfTimes: numberOfTimes ?? this.numberOfTimes,
-      addressOfGif: addressOfGif ?? this.addressOfGif,
+      MainTitle: MainTitle ?? this.MainTitle,
+      advantage: advantage ?? this.advantage,
+      times: times ?? this.times,
     );
   }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'titleOfExercise': titleOfExercise,
-      'numberOfTimes': numberOfTimes,
-      'addressOfGif': addressOfGif,
+      'MainTitle': MainTitle,
+      'advantage': advantage,
+      'times': times,
     };
   }
 
   factory ExerciseRequirments.fromMap(Map<String, dynamic> map) {
     return ExerciseRequirments(
-      titleOfExercise: map['titleOfExercise'] as String,
-      numberOfTimes: map['numberOfTimes'] as String,
-      addressOfGif: map['addressOfGif'] as String,
+      MainTitle: map['MainTitle'] as String,
+      advantage: map['advantage'] as String,
+      times: map['times'] as String,
     );
   }
 
@@ -44,18 +44,18 @@ class ExerciseRequirments {
   factory ExerciseRequirments.fromJson(String source) => ExerciseRequirments.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() => 'AbsExerciseRequirments(titleOfExercise: $titleOfExercise, numberOfTimes: $numberOfTimes, addressOfGif: $addressOfGif)';
+  String toString() => 'ExerciseRequirments(MainTitle: $MainTitle, advantage: $advantage, times: $times)';
 
   @override
   bool operator ==(covariant ExerciseRequirments other) {
     if (identical(this, other)) return true;
   
     return 
-      other.titleOfExercise == titleOfExercise &&
-      other.numberOfTimes == numberOfTimes &&
-      other.addressOfGif == addressOfGif;
+      other.MainTitle == MainTitle &&
+      other.advantage == advantage &&
+      other.times == times;
   }
 
   @override
-  int get hashCode => titleOfExercise.hashCode ^ numberOfTimes.hashCode ^ addressOfGif.hashCode;
+  int get hashCode => MainTitle.hashCode ^ advantage.hashCode ^ times.hashCode;
 }

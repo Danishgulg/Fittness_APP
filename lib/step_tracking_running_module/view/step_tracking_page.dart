@@ -1,7 +1,11 @@
+import 'dart:math';
+
+import 'package:fit_now/step_tracking_running_module/model/step_progress_painter.dart';
 import 'package:fit_now/step_tracking_running_module/widget/div_container.dart';
 import 'package:fit_now/step_tracking_running_module/widget/running_measure_container.dart';
 import 'package:fit_now/step_tracking_running_module/widget/start_running_button.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pedometer/pedometer.dart';
 
 class StepTrackingPage extends StatefulWidget {
@@ -24,14 +28,11 @@ class _StepTrackingPageState extends State<StepTrackingPage> {
     // getStepCount();
   }
 
- 
-
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final screenHeight = screenSize.height;
     final screenWidth = screenSize.width;
-    final screenArea = (screenHeight + screenWidth) / 2;
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 4, 30, 60),
@@ -50,32 +51,46 @@ class _StepTrackingPageState extends State<StepTrackingPage> {
                   borderRadius: BorderRadius.circular(20)),
               child: Column(
                 children: [
+                  Text('Steps Counter',
+                      style: GoogleFonts.aDLaMDisplay().copyWith(
+                          fontSize: screenWidth * 0.06,
+                          color:Colors.white)),
                   SizedBox(
-                    height: screenHeight * 0.1,
+                    height: screenHeight * 0.05,
                   ),
                   SizedBox(
-                    width: screenWidth * 0.4,
-                    height: screenHeight * 0.2,
+                    width: screenWidth * 0.5,
+                    height: screenHeight * 0.25,
                     child: Stack(
                       children: [
-                        SizedBox(
-                          width: screenWidth * 0.4,
-                          height: screenHeight * 0.2,
-                          child: CircularProgressIndicator(
-                            backgroundColor: Colors.grey.shade400,
-                            color: const Color.fromARGB(255, 64, 142, 96),
-                            strokeCap: StrokeCap.round,
-                            strokeWidth: screenWidth * 0.03,
-                            value: _getStepPercent(1, 1000),
-                          ),
+                        CustomPaint(
+                          // define the number of steps measured and the step target
+
+                          painter: StepProgressPainter(
+                              progress: 200, stepTarget: 1500),
+                          child: Container(
+                              width: screenWidth * 0.5,
+                              height: screenHeight * 0.3),
                         ),
                         Align(
                           alignment: Alignment.center,
                           child: Text(
-                            'Target \n$steps',
+                            steps,
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: screenArea * 0.04),
+                                fontSize: screenWidth * 0.09),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: screenHeight * 0.08),
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              'steps',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: screenWidth * 0.04),
+                            ),
                           ),
                         )
                       ],
@@ -92,7 +107,8 @@ class _StepTrackingPageState extends State<StepTrackingPage> {
                           'assets/images/run_calories.png',
                           fit: BoxFit.fill,
                         ),
-                        text: 'cal burnt',
+                        type: 'cal burnt',
+                        amount: '233',
                       ),
                       DivContainer(
                         height: screenHeight * 0.1,
@@ -102,7 +118,8 @@ class _StepTrackingPageState extends State<StepTrackingPage> {
                           'assets/images/run_time.png',
                           fit: BoxFit.fill,
                         ),
-                        text: 'cal burnt',
+                        type: 'Time',
+                        amount: '12:43 ',
                       ),
                       DivContainer(
                         height: screenHeight * 0.1,
@@ -112,7 +129,8 @@ class _StepTrackingPageState extends State<StepTrackingPage> {
                           'assets/images/run_distance.png',
                           fit: BoxFit.fill,
                         ),
-                        text: 'cal burnt',
+                        type: 'Distance',
+                        amount: '11km',
                       ),
                     ],
                   )
@@ -122,7 +140,9 @@ class _StepTrackingPageState extends State<StepTrackingPage> {
             SizedBox(
               height: screenHeight * 0.06,
             ),
-            StartRunningButton(isCount: isCount,)
+            StartRunningButton(
+              isCount: isCount,
+            )
           ],
         ),
       ),
@@ -133,7 +153,3 @@ class _StepTrackingPageState extends State<StepTrackingPage> {
     return (value / target) * 1;
   }
 }
-
-
-
-
